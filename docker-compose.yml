@@ -7,13 +7,14 @@ services:
       ports:
         - "5432:5432"
       environment:
+        - POSTGRES_DB
         - POSTGRES_USER
         - POSTGRES_PASSWORD
       volumes:
-        - ./db:/var/lib/postgresql/data
+        - ./db:/var/lib/postgresql/dbdata
     pgadmin:
       image: dpage/pgadmin4:8.4
-      container_name: ShireStoneManager
+      container_name: ShireStoreManager
       restart: always
       ports:
         - "8888:80"
@@ -23,5 +24,5 @@ services:
       volumes:
         - ./pgadmin:/var/lib/pgadmin
 volumes:
-    db:
-    pgadmin:
+    db_volume:
+    pgadmin_volume:
